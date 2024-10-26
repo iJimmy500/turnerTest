@@ -23,9 +23,9 @@ print(f"Give me a few seconds to fetch your top tracks...")
 time.sleep(1)
 
 def fetch_from_past(username):
-    one_year_ago = current_date - timedelta(days=365)
-    from_timestamp = int(one_year_ago.strftime("%s")) 
-    to_timestamp = from_timestamp + (7 * 24 * 60 * 60)
+    target_date = current_date - timedelta(days=731)
+    from_timestamp = int(datetime.datetime(target_date.year, target_date.month, target_date.day).timestamp())
+    to_timestamp = from_timestamp + (24 * 60 * 60) 
     
     url = (
         f"http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks"
@@ -42,7 +42,7 @@ def fetch_from_past(username):
             artist_name = track["artist"]["#text"]
             track_url = track["url"]
             time_played = int(track["date"]["uts"])
-            # timestamp = datetime.datetime.fromtimestamp(time_played).strftime('%Y-%m-%d %H:%M:%S')
+            
             timestamp = datetime.datetime.fromtimestamp(time_played).strftime('%m/%d/%Y %H:%M')
             print(f"{artist_name} - {song_name}  | Played on: {timestamp}")
                   
