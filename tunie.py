@@ -25,7 +25,7 @@ time.sleep(1)
 def fetch_from_past(username):
     one_year_ago = current_date - timedelta(days=365)
     from_timestamp = int(one_year_ago.strftime("%s")) 
-    # to_timestamp = from_timestamp + (7 * 24 * 60 * 60)
+    to_timestamp = from_timestamp + (7 * 24 * 60 * 60)
     
     url = (
         f"http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks"
