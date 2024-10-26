@@ -2,7 +2,7 @@ import time
 import webbrowser
 import tkinter as tk
 from tkinter import simpledialog
-from PIL import Image, ImageTk
+# from PIL import Image, ImageTk
 import datetime
 import requests
 
